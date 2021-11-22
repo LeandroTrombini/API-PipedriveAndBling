@@ -2,19 +2,32 @@ const mongoose = require('mongoose');
 
 
 const OrderModel = new mongoose.Schema({
-    id: mongoose.ObjectId,
-    name: {
+    id: {
+        type: Number,
+        required: true
+    },
+    person_name: {
         type: String,        
         required: true
     },
-    email: {
+    deal_title: {
         type: String,
         required: true
+    },
+    deal_value: {
+        type: String,
+        required: true
+    },
+    created_at: {
+        type: Date, 
+        default: Date.now()
+    },
+    updated_at: {
+        type: Date, 
+        default: Date.now()
     }
     
-}, {
-    timestamps: true
-}
+} 
 );
 
 

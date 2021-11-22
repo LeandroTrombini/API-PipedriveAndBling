@@ -1,11 +1,18 @@
-const { Router } = require('express');
+const express = require('express');
 
 const OrderController = require('./controllers/OrderController');
-const routes = new Router(); 
+const BlingController = require('./controllers/BlingController');
+
+const routes = express.Router(); 
+
+routes.get('/', (req, res) => {
+    return res.redirect('/deals')
+})
 
 
-routes.post("/order", OrderController.store);
-routes.get("/order", OrderController.show);
+routes.get('/deals', OrderController.index);
+routes.get('/deals/consolidated', OrderController.consolidated);
+routes.get('/deals/bling', BlingController.index);
 
 
 
